@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery对象</title>
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <ul>
+        <li id="swk">孙悟空</li>
+        <li id="zbj">猪八戒</li>
+        <li>唐僧</li>
+        <li>沙悟净</li>
+        <li>白骨精</li>
+    </ul>
+
+    <script>
+        /* 
+            jQuery对象
+                - 通过jQuery核心函数获取到的对象就是jQuery对象
+                - jQuery对象是jQuery中定义的对象
+                    可以将其理解为是DOM对象的升级版，在jQuery对象中为我们提供了很多简单易用的方法来帮助我们简化DOM操作
+                - jQuery对象本质上是一个DOM对象的数组（类数组）
+                    可以通过索引获取jQuery对象中的DOM对象
+                - 当我们修改jQuery对象时，它会自动修改jQuery中的所有元素
+                    这一特点称为jQuery的隐式迭代
+        */
+        $("#btn").click(function(){
+            var $li = $("li")
+            // alert($li)  // [object Object]
+            // alert($li.length) // 5
+            // alert($li[0]) // [object HTMLLIElement]
+            // alert($li[0].textContent) // 猪八戒
+
+            // $li.text("哈哈哈") // 5个li全部变成 哈哈哈
+            var text = $li.text()
+            alert(text)  // 孙悟空猪八戒唐僧沙悟净白骨精  读取文本，返回所有标签中的文本
+            var id = $li.attr("id")
+            alert(id)  // swk 读取属性，返回第一个标签的属性
+        })
+
+        
+    </script>
+</body>
+</html>
